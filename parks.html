@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lake Co FP</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/mixitup.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+
+
+</head>
+<body>
+	 <nav class="navbar navbar-expand-xl" id="navigationBar">
+      <a class="navbar-brand dark" href="index.html"><img src="images/logoDark.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navOptions" style="top: 50px;">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link disabled dark" href="#">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled dark" href="#">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dark" href="parks.html">Parks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid parksContainter" >
+      <div class="row">
+        <div class="col-1"></div>
+        <div id="map" style="width:100%;height:500px;margin-right: 20px" class="col-lg-6"></div>
+
+        <script type="text/javascript">
+          var parks = [
+            ["Independence Grove, Liberyville", "ig.jpg", "ig.html", 42.309161, -87.9535807],
+            ["Old School, Liberyville", "os.jpg", "os.html", 42.271289, -87.9270137],
+            ["Fort Sheridan Beach, Lake Forest", "fs.jpg", "fs.html", 42.2335933, -87.8487661],
+            ["Captain Daniel Wright Woods, Mettawa", "cd.jpg","cd.html", 42.2188159, -87.9295407],
+            ["Half Day Forest Preserve, Vernon Hills", "hd.jpg", "hd.html", 42.2139721, -87.9344434],
+            ["Rollins Savanna, Grayslake", "rs.jpg", "rs.html", 42.3613496, -88.0261668]
+          ];
+
+          function myMap() {
+
+          var mapProp = {
+              center:new google.maps.LatLng(42.309161, -87.9535807),
+              zoom:11.25,
+          };
+
+          var markers = [];
+          for (var i = 0; i < parks.length; i++) {
+            var marker = new google.maps.Marker({
+              position:new google.maps.LatLng(parks[i][3], parks[i][4]),
+              icon: 'images/parkMarker.png'
+            });
+            markers[i] = marker;
+          }
+
+
+
+          var map = new google.maps.Map(document.getElementById("map"),mapProp);
+
+          for (var i = 0; i <= markers.length; i++) {
+            markers[i].setMap(map);
+          }
+          
+          };
+
+        </script>
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg8tHqUe5AZa6H3nH3CKP64YEScnLD404
+         &callback=myMap"></script>
+        
+         <div class="col-lg-4">
+          <div class="row">
+            <div id = "refineSearch" class="refineSearch col-lg-12">
+              <div class="row">
+                <form id="search"></form>
+                <div id="filter" class="filter">Filter</div>
+                <div class="sort" id="sort">Sort</div>
+              </div>
+              <div class="row">
+                <div class="sortOptions" id="sortOptions">
+                  <button class="AZ optionSort" data-sort="order:descending">Alphabetical A-Z</button>
+                  <button class="ZA optionSort" data-sort="order:asc">Alphabetical Z-A</button>
+                </div>
+                <div class="filterOptions" id="filterOptions">
+                  <div class="filterOptionHeader water">Water
+                    <div class="row">
+                      <button class="optionFilter water" data-filter="boatLaunch">Boat Launch</button>
+                      <button class="optionFilter water" data-filter=".fishing">Fishing</button>
+                      <button class="optionFilter water" data-filter=".lake">Lake</button>
+                      <button type="button" class="optionFilter water" data-filter=".river">River</button>
+                      <button class="optionFilter water" data-filter=".swimming">Swimming</button>
+                    </div>
+                    <div class="filterOptionHeader sports" id="sports">Sports
+                      <div class="row">
+                        <button class="optionFilter sports" data-filter=".biking">Biking</button>
+                        <button class="optionFilter sports" data-filter=".golf">Golf</button>
+                        <button class="optionFilter sports" data-filter=".hiking">Hiking</button>
+                        <button class="optionFilter sports" data-filter=".horseback">Horseback Riding</button>
+                        <button class="optionFilter sports" data-filter=".ice">Ice Skating</button>
+                        <button class="optionFilter sports" data-filter=".inline">In-line</button>
+                        <button class="optionFilter sports" data-filter=".sledding">Sledding</button>
+                        <button class="optionFilter sports" data-filter=".snowmobiling">Snowmobiling</button>
+                        <button class="optionFilter sports" data-filter=".volleyball">Volleyball</button>
+                      </div>
+                    </div>
+                    <div class="filterOptionHeader sports" id="spaces">Spaces
+                      <div class="row">
+                        <button class="optionFilter spaces" data-filter=".camping">Camping</button>
+                        <button class="optionFilter spaces" data-filter=".dogpark">Dog Park</button>
+                        <button class="optionFilter spaces" data-filter=".flush">Flush Toilets</button>
+                        <button class="optionFilter spaces" data-filter=".grills">Grills</button>
+                        <button class="optionFilter spaces" data-filter=".picnic">Picnic Shelter</button>
+                        <button class="optionFilter spaces" data-filter=".playground">Playground</button>
+                        <button class="optionFilter spaces" data-filter=".public">Public Parking</button>
+                        <button class="optionFilter spaces" data-filter=".visitor">Visitor Center</button>
+                      </div>
+                    </div>
+                    <div class="filterOptionHeader sports" id="rentals">Rentals
+                      <div class="row">
+                        <div class="optionFilter rentals" data-filter=".bikes">Bikes</div>
+                        <div class="optionFilter rentals" data-filter=".boats">Boats</div>
+                        <div class="optionFilter rentals" data-filter=".canoes">Canoes</div>
+                        <div class="optionFilter rentals" data-filter=".kayaks">Kayaks</div>
+                        <div class="optionFilter rentals" data-filter=".rollerblades">Rollerblades</div>
+                        <div class="optionFilter rentals" data-filter=".snowshoes">Snow Shoes</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="optionFilter" style="background-color: black; color: white; margin-bottom: 15px;" data-filter = "all">Remove All</div>
+                    </div>
+                  </div>
+
+                </div>   
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div  id="parkList" class="parkList col-lg-12 container">
+            <a href="ig.html">
+              <div id="ig" class = "mix parkProfiles canoeing dogpark fireplace exhibits fishing kayaking picnic playground bikes boats canoes kayaks snowshoes trails volleyball visitor swimming fishing lake river inline dogpark flush grills " data-order="4" style="background-image: url(images/ig.jpg);">
+              <h3 id="parkName">Independence Grove</h3>
+              </div>
+            </a>
+            <div id="hd" class = "mix parkProfiles biking hiking horseback river grills picnic parking " data-order="3" style="background-image: url(images/hd.jpg);">
+                <h3 id="parkName">Half Day Forest Preserve</h3>
+            </div>
+
+            <div id="cd" class = "mix parkProfiles biking hiking trails horseback river" data-order="1" style="background-image: url(images/cd.jpg);">
+                <h3 id="parkName">Captain Daniel Wright Woods</h3>
+            </div>
+
+            <div id="rs" class = "mix parkProfiles hiking biking trails dogpark flush grills picnic public" data-order="6" style="background-image: url(images/rs.jpg);">
+                <h3 id="parkName">Rollins Savanna</h3>
+            </div>
+
+            <div id="fs" class = "mix parkProfiles lake swimming boat fishing " data-order="2" style="background-image: url(images/fs.jpg);">
+                <h3 id="parkName">Fort Sheridan Beach</h3>
+            </div>
+
+            <div id="os" class = "mix parkProfiles river hiking biking snowshoes bikes horseback inline sledding snowmobiling volleyball playground picnic grills public flush" data-order="5" style="background-image: url(images/os.jpg);">
+                <h3 id="parkName">Old School Forest Preserve</h3>
+            </div>
+
+            </div>
+
+          </div>
+        </div> 
+
+
+
+        <div class="col-1"></div>
+
+
+      </div>
+    </div>
+
+</body>
+</html>

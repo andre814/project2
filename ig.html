@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lake Co FP</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-xl" id="navigationBar">
+      <a class="navbar-brand" href="index.html" style="text-shadow: 0px 0px 150px grey;"><img src="images/logo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navOptions" style="top: 50px;">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="parks.html">Parks</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 igHeader dark" style="background-image: url(images/ig.jpg); ">
+      </div>
+    </div>
+    <div class="row pgContent">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-4">
+        <div class="row igName">
+        <h3>INDEPENDENCE GROVE</h3>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 address addSpaceAtTop">
+            <h5>Address</h5>
+            <p>
+              16000 West Buckley Road<br>
+              Libertyville IL, 60048<br>
+              (847)-968-3499
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 hours">
+            <h5>Hours</h5>
+            <p>
+              7:00 am to Sunset<br>
+              Visitors Center: 9:00 am - 4:30pm
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 trailMaps">
+            <div class="row">
+              <h5>Trail Maps</h5>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <img src="images/igqr.png">
+              </div>
+              <div class="col-8">
+                <p>
+                  Scan the QR code to saeve trail maps to your phone or click below to visit the map.
+                </p>
+                <div class="trailMapsLink">
+                  Trail Maps
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="map" style="height:400px;margin-right: 20px" class="col-lg-6">
+        
+      </div>
+      <div class="col-lg-1"></div>
+
+        <script type="text/javascript">
+
+          function myMap() {
+
+          var mapProp = {
+              center:new google.maps.LatLng(42.309161, -87.9535807),
+              zoom:14,
+          };
+
+          var marker = new google.maps.Marker({position:new google.maps.LatLng(42.309161, -87.9535807),
+          icon: 'images/parkMarker.png'});
+        
+
+
+
+          var map = new google.maps.Map(document.getElementById("map"),mapProp);
+
+          marker.setMap(map);
+          
+          
+          };
+
+        </script>
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg8tHqUe5AZa6H3nH3CKP64YEScnLD404
+         &callback=myMap"></script>
+      </div>
+
+
+      <div class="row pgContent2 addSpaceAtTop">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <div class="row amenities">
+            <h5>Amenities</h5>
+          </div>
+          <div class="row amenitiesList addSpaceAtTop">
+              <div class="col-lg-2">
+                Canoeing <br style="line-height: 250%;">
+                Dog Park <br style="line-height: 250%;">
+                Exhibits <br style="line-height: 250%;">
+              </div>
+              <div class="col-lg-2">
+                Fireplace <br style="line-height: 250%;">
+                Fishing <br style="line-height: 250%;">
+                Kayaking <br style="line-height: 250%;">
+              </div>
+              <div class="col-lg-2">
+                Picnic Area <br style="line-height: 250%;">
+                Playground <br style="line-height: 250%;">
+                Rentals <br style="line-height: 250%;">
+              </div>
+              <div class="col-lg-2">
+                Trails <br style="line-height: 250%;">
+                Volleyball <br style="line-height: 250%;">
+                Visitors Center <br style="line-height: 250%;">
+              </div>
+              <div class="col-lg-4">
+                <h5>Reserve A Space</h5>
+                <p>View and reserve amenaties</p>
+                <div class="rASLink">Reserve</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+
+      <div class="row pgContent3 addSpaceAtTop">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <div class="row news">
+            <h5>News</h5>
+          </div>
+          <div class="row newsStories addSpaceAtTop">
+            <div class="col-lg-3">
+              <h6>Check Status of Trails and Preserves</h6>
+              <p>Before heading out. check the current status of trail underpasses. Also...</p>
+              <div class="readMoreNews addSpaceAtTop">
+                Read More
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <h6>Safety Alert: Theft Prevention Tips</h6>
+              <p>Safeguard against auto burglary. When property is left unlocked or in plain...<p>
+              <div class="readMoreNews addSpaceAtTop">
+                Read More
+              </div> 
+            </div>
+            <div class="col-lg-3">
+              <h6>Ticks and Lyme Disease</h6>
+              <p>While enjoying activities outside, don’t forget to take action to prevent...<br> </p>
+              <div class="readMoreNews addSpaceAtTop">
+                Read More
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <h6>Register for Summer Camp Today!</h6>
+              <p>Our camps are designed for summer fun and learning. Browse available camps...</p>
+              <div class="readMoreNews addSpaceAtTop">
+                Read More
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+
+
+    </div>
+
+</body>
+</html>
